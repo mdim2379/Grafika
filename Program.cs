@@ -1,6 +1,6 @@
 ﻿using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
-//asd
+//asdasd
 namespace Szeminarium1
 {
     internal static class Program
