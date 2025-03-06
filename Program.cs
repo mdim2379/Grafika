@@ -106,19 +106,20 @@ namespace Szeminarium1
 
             uint vao = Gl.GenVertexArray();
             Gl.BindVertexArray(vao);
-            
+
             //haromszogek elrontasa, tombok elrontasa
             float[] vertexArray = new float[] {
                 -0.5f, -5f, 0.0f,
                 +0.5f, -0.5f, 0.0f,
-                 0.0f, +0.5f, 0.0f,
-                 1f, 1f
+                0.0f, +0.5f, 0.0f,
+                1f, 1f
             };
 
+            //szinek tomb elrontasa
             float[] colorArray = new float[] {
-                1.0f, 0.0f, 0.0f, 1.0f,
+                1.0f, 0.0f, 0.0f, 70f,
                 0.0f, 1.0f, 0.0f, 1.0f,
-                0.0f, 0.0f, 1.0f, 1.0f,
+                0.0f, 14.0f, 1.0f, 100f,
                 1.0f, 0.0f, 0.0f, 1.0f,
             };
 
