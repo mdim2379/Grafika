@@ -18,7 +18,7 @@ namespace Szeminarium1
 
 		out vec4 outCol;
         
-        void main()
+        void main()asd
         {
 			outCol = vCol;
             gl_Position = vec4(vPos.x, vPos.y, vPos.z, 1.0);
@@ -32,7 +32,7 @@ namespace Szeminarium1
 		
 		in vec4 outCol;
 
-        void main()
+        void main()asd
         {
             FragColor = outCol;
         }
