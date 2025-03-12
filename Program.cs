@@ -60,13 +60,13 @@ namespace Szeminarium1
 
             Gl = graphicWindow.CreateOpenGL();
 
-           // Gl.ClearColor(System.Drawing.Color.White);
+            Gl.ClearColor(System.Drawing.Color.White);
 
             uint vshader = Gl.CreateShader(ShaderType.VertexShader);
             uint fshader = Gl.CreateShader(ShaderType.FragmentShader);
 
             Gl.ShaderSource(vshader, VertexShaderSource);
-            Gl.CompileShader(vshader);
+          //  Gl.CompileShader(vshader);
             Gl.GetShader(vshader, ShaderParameterName.CompileStatus, out int vStatus);
             if (vStatus != (int)GLEnum.True)
                 throw new Exception("Vertex shader failed to compile: " + Gl.GetShaderInfoLog(vshader));
