@@ -106,8 +106,7 @@ namespace Szeminarium1
 
             uint vao = Gl.GenVertexArray();
             Gl.BindVertexArray(vao);
-
-            //minden visszallitasa
+            
             float[] vertexArray = new float[] {
                 -0.5f, -0.5f, 0.0f,
                 +0.5f, -0.5f, 0.0f,
@@ -116,10 +115,10 @@ namespace Szeminarium1
             };
 
             float[] colorArray = new float[] {
-                1.0f, 0.0f, 0.0f, 1.0f,
-                0.0f, 1.0f, 0.0f, 1.0f,
-                0.0f, 0.0f, 1.0f, 1.0f,
-                1.0f, 0.0f, 0.0f, 1.0f,
+                1.0f, 1.0f, 1.0f, 1.0f,
+                1.0f, 1.0f, 0.0f, 1.0f,
+                1.0f, 1.0f, 1.0f, 1.0f,
+                1.0f, 1.0f, 1.0f, 1.0f,
             };
 
             uint[] indexArray = new uint[] { 
@@ -128,20 +127,20 @@ namespace Szeminarium1
             };
 
             uint vertices = Gl.GenBuffer();
-            //bindbufferek torlese
-            //Gl.BindBuffer(GLEnum.ArrayBuffer, vertices);
+
+            Gl.BindBuffer(GLEnum.ArrayBuffer, vertices);
             Gl.BufferData(GLEnum.ArrayBuffer, (ReadOnlySpan<float>)vertexArray.AsSpan(), GLEnum.StaticDraw);
             Gl.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 0, null);
             Gl.EnableVertexAttribArray(0);
 
             uint colors = Gl.GenBuffer();
-            //Gl.BindBuffer(GLEnum.ArrayBuffer, colors);
+            Gl.BindBuffer(GLEnum.ArrayBuffer, colors);
             Gl.BufferData(GLEnum.ArrayBuffer, (ReadOnlySpan<float>)colorArray.AsSpan(), GLEnum.StaticDraw);
             Gl.VertexAttribPointer(1, 4, VertexAttribPointerType.Float, false, 0, null);
             Gl.EnableVertexAttribArray(1);
 
             uint indices = Gl.GenBuffer();
-            //Gl.BindBuffer(GLEnum.ElementArrayBuffer, indices);
+            Gl.BindBuffer(GLEnum.ElementArrayBuffer, indices);
             Gl.BufferData(GLEnum.ElementArrayBuffer, (ReadOnlySpan<uint>)indexArray.AsSpan(), GLEnum.StaticDraw);
 
             //Gl.BindBuffer(GLEnum.ArrayBuffer, 0);
