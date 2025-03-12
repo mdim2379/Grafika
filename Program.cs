@@ -158,7 +158,6 @@ namespace Szeminarium1
                 0,0,1,0,
                 0,0,1,0,
                 0,0,1,0
-                
             };
             
             uint[] indexArray = new uint[] { 
