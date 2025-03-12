@@ -42,7 +42,7 @@ namespace Szeminarium1
         {
             WindowOptions windowOptions = WindowOptions.Default;
             windowOptions.Title = "1. szeminárium - háromszög";
-            windowOptions.Size = new Silk.NET.Maths.Vector2D<int>(500, 500);
+            windowOptions.Size = new Silk.NET.Maths.Vector2D<int>(1000, 1000);
 
             graphicWindow = Window.Create(windowOptions);
 
@@ -72,7 +72,7 @@ namespace Szeminarium1
                 throw new Exception("Vertex shader failed to compile: " + Gl.GetShaderInfoLog(vshader));
 
             Gl.ShaderSource(fshader, FragmentShaderSource);
-            //Gl.CompileShader(fshader);
+            Gl.CompileShader(fshader);
 
             program = Gl.CreateProgram();
             Gl.AttachShader(program, vshader);
@@ -108,24 +108,35 @@ namespace Szeminarium1
             Gl.BindVertexArray(vao);
             
             float[] vertexArray = new float[] {
-                -0.5f, -0.5f, 0.0f,
-                +0.5f, -0.5f, 0.0f,
-                 0.0f, +0.5f, 0.0f,
-                 1f, 1f, 0f
+                 0.0f, 0.24f, 0.0f,//A0
+                -0.5f, 0.65f, 0.0f,//E1
+                 -0.5f, -0.2f, 0.0f,//C2
+                 0.0f, -0.462f, 0.0f,//B3
+                 0.5f, -0.2f, 0.0f,//F4
+                 0.52f, 0.645f, 0.0f,//G5
+                 0.0f, 0.9f, 0.0f//D6
             };
-
+            
             float[] colorArray = new float[] {
-                1.0f, 1.0f, 1.0f, 0.0f,
-                1.0f, 1.0f, 0.0f, 0.0f,
-                1.0f, 1.0f, 1.0f, 0.0f,
-                1.0f, 1.0f, 1.0f, 0.0f,
+                1.0f, 0.0f, 0.0f, 0.0f,
+                1.0f, 0.0f, 0.0f, 0.0f,
+                1.0f, 0.0f, 0.0f, 0.0f,
+                1.0f, 0.0f, 0.0f, 0.0f,
+                0.0f, 1.0f, 0.0f, 0.0f,
+                0.0f, 1.0f, 0.0f, 0.0f,
+                0.0f, 0.0f, 1.0f, 0.0f,
             };
-
+            
             uint[] indexArray = new uint[] { 
-                0, 1, 2,
-                2, 1, 3
+                2,3,0,
+                0,1,2,
+                4,5,0,
+                0,3,4,
+                6,5,0,
+                6,1,0
             };
 
+            
             uint vertices = Gl.GenBuffer();
 
             Gl.BindBuffer(GLEnum.ArrayBuffer, vertices);
