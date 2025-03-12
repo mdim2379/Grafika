@@ -60,7 +60,7 @@ namespace Szeminarium1
 
             Gl = graphicWindow.CreateOpenGL();
 
-            Gl.ClearColor(System.Drawing.Color.White);
+           // Gl.ClearColor(System.Drawing.Color.White);
 
             uint vshader = Gl.CreateShader(ShaderType.VertexShader);
             uint fshader = Gl.CreateShader(ShaderType.FragmentShader);
@@ -75,8 +75,8 @@ namespace Szeminarium1
             Gl.CompileShader(fshader);
 
             program = Gl.CreateProgram();
-           // Gl.AttachShader(program, vshader);
-           // Gl.AttachShader(program, fshader);
+            Gl.AttachShader(program, vshader);
+            Gl.AttachShader(program, fshader);
             Gl.LinkProgram(program);
             Gl.DetachShader(program, vshader);
             Gl.DetachShader(program, fshader);
