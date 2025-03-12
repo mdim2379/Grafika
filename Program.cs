@@ -46,9 +46,9 @@ namespace Szeminarium1
 
             graphicWindow = Window.Create(windowOptions);
 
-           // graphicWindow.Load += GraphicWindow_Load;
+            graphicWindow.Load += GraphicWindow_Load;
             graphicWindow.Update += GraphicWindow_Update;
-            graphicWindow.Render += GraphicWindow_Render;
+            //graphicWindow.Render += GraphicWindow_Render;
 
             graphicWindow.Run();
         }
