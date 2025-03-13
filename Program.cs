@@ -130,8 +130,19 @@ namespace Szeminarium1
                  
                  0.5f, 0f, 0.0f,//F16
                  0.0f, 0.40f, 0.0f,//A17
-                 0.0f, -0.3f,0.0f//B18
+                 0.0f, -0.3f,0.0f,//B18
                  
+                 //vonalak
+                 
+                 0f, 0.17f, 0f, //A2 19
+                 0f, 0.16f, 0f, //A2 vastagsagpont 20
+                 0f, -0.063f, 0f, //B2 21
+                 0f, -0.073f, 0f, //B2 vastagsagpont 22
+                 
+                 -0.5f, 0.40f, 0f, //E1 23
+                 
+                 
+                 -0.5f, 0.2f, 0f //C1 25
             };
             
             float[] colorArray = new float[] {
@@ -157,7 +168,10 @@ namespace Szeminarium1
                 
                 0,0,1,0,
                 0,0,1,0,
-                0,0,1,0
+                0,0,1,0,
+                
+                0,0,0,0,
+                0,0,0,0
             };
             
             uint[] indexArray = new uint[] { 
@@ -170,7 +184,11 @@ namespace Szeminarium1
                 7,9,8,
                 10,11,12,
                 13,14,15,
-                16,17,18
+                16,17,18,
+                
+                //vonalak
+                19,20,23,
+                21,22,25
             };
 
             
