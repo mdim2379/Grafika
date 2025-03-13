@@ -260,7 +260,11 @@ namespace Szeminarium1
                 
                 //vonalak felso 2
                 
+                31, 32, 42,
+                42, 41, 31,
                 
+                33,34,40,
+                40, 39, 33
                 
                 
                 
