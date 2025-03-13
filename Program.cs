@@ -133,6 +133,7 @@ namespace Szeminarium1
                  0.0f, -0.3f,0.0f,//B18
                  
                  //vonalak
+                 //VP = vastagsagpont
                  
                  0f, 0.17f, 0f, //A2 19
                  0f, 0.16f, 0f, //A2 vastagsagpont 20
@@ -140,9 +141,10 @@ namespace Szeminarium1
                  0f, -0.073f, 0f, //B2 vastagsagpont 22
                  
                  -0.5f, 0.40f, 0f, //E1 23
+                 -0.5f, 0.41f, 0f, //E1 VP 24
                  
-                 
-                 -0.5f, 0.2f, 0f //C1 25
+                 -0.5f, 0.2f, 0f, //C1 25
+                 -0.5f, 0.19f, 0f //C1 VP 26
             };
             
             float[] colorArray = new float[] {
@@ -171,6 +173,8 @@ namespace Szeminarium1
                 0,0,1,0,
                 
                 0,0,0,0,
+                0,0,0,0,
+                0,0,0,0,
                 0,0,0,0
             };
             
@@ -186,9 +190,15 @@ namespace Szeminarium1
                 13,14,15,
                 16,17,18,
                 
-                //vonalak
+                //vonalak piros fuggoleges
                 19,20,23,
-                21,22,25
+                21,22,25,
+                19,24,23,
+                26,25,22
+                
+                
+                
+                
             };
 
             
