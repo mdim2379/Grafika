@@ -35,20 +35,22 @@ namespace Szeminarium
 
         internal void AdvanceTime(double deltaTime)
         {
+            System.Console.WriteLine(deltaTime);
             // we do not advance the simulation when animation is stopped
-            if (!AnimationEnabled)
-                return;
+            if (AnimationEnabled)
+            {
+                // set a simulation time
+                Time += deltaTime;
 
-            // set a simulation time
-            Time += deltaTime;
+                // lets produce an oscillating scale in time
 
-            // lets produce an oscillating scale in time
-          //  CenterCubeScale = 1 + 0.2 * Math.Sin(1.5 * Time);
+                // the rotation angle is time x angular velocity;
+                // DiamondCubeLocalAngle = Time * 10;
 
-            // the rotation angle is time x angular velocity;
-           // DiamondCubeLocalAngle = Time * 10;
-
-          //  DiamondCubeGlobalYAngle = -Time;
+                DiamondCubeGlobalYAngle += Math.PI/2;
+                
+                AnimationEnabled = false;
+            }
         }
     }
 }

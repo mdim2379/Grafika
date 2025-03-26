@@ -16,7 +16,7 @@ namespace GrafikaSzeminarium
 
         private static CameraDescriptor camera = new CameraDescriptor();
 
-        private static CubeArrangementModel cubeArrangementModel = new CubeArrangementModel();
+        private static CubeArrangementModel[] cubeArrangementModels = new CubeArrangementModel[27];
 
         private const string ModelMatrixVariableName = "uModel";
         private const string ViewMatrixVariableName = "uView";
@@ -173,6 +173,9 @@ namespace GrafikaSzeminarium
                     break;
                 case Key.ControlLeft:
                     camera.setOffset(5);
+                    break;
+                case Key.Number1:
+                    cubeArrangementModel.AnimationEnabled = true;
                     break;
                     
             }
