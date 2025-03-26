@@ -1,10 +1,12 @@
 ﻿
+using System.Numerics;
 using Silk.NET.Maths;
 
 namespace Szeminarium
 {
     internal class CameraDescriptor
     {
+        private Vector3D<float> offset = new Vector3D<float>(0, 0, 0);
         public double DistanceToOrigin { get; private set; } = 1;
 
         public double AngleToZYPlane { get; private set; } = 0;
@@ -13,7 +15,32 @@ namespace Szeminarium
 
         const double DistanceScaleFactor = 1.1;
 
-        const double AngleChangeStepSize = Math.PI / 180 * 5;
+        const float AngleChangeStepSize = (float)Math.PI / 180 * 5;
+
+        public void setOffset(int key)
+        {
+            switch (key)
+            {
+                case 0:
+                    offset.Z -= 0.5f;
+                    break;
+                case 1:
+                    offset.X -= 0.5f;
+                    break;
+                case 2:
+                    offset.Z += 0.5f;
+                    break;
+                case 3:
+                    offset.X += 0.5f;
+                    break;
+                case 4:
+                    offset.Y += 0.5f;
+                    break;
+                case 5:
+                    offset.Y -= 0.5f;
+                    break;
+            }
+        }
 
         /// <summary>
         /// Gets the position of the camera.
@@ -22,7 +49,7 @@ namespace Szeminarium
         {
             get
             {
-                return GetPointFromAngles(DistanceToOrigin, AngleToZYPlane, AngleToZXPlane);
+                return GetPointFromAngles(DistanceToOrigin, AngleToZYPlane, AngleToZXPlane) + offset;
             }
         }
 
@@ -45,7 +72,7 @@ namespace Szeminarium
             get
             {
                 // For the moment the camera is always pointed at the origin.
-                return Vector3D<float>.Zero;
+                return Vector3D<float>.Zero + offset;
             }
         }
 

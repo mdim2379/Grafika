@@ -37,7 +37,7 @@ namespace GrafikaSzeminarium
         {
 			outCol = vCol;
             gl_Position = uProjection*uView*uModel*vec4(vPos.x, vPos.y, vPos.z, 1.0);
-        }
+        } 
         ";
 
 
@@ -145,26 +145,36 @@ namespace GrafikaSzeminarium
             switch (key)
             {
                 case Key.Left:
-                    camera.DecreaseZYAngle();
-                    break;
-                case Key.Right:
                     camera.IncreaseZYAngle();
                     break;
-                case Key.Down:
-                    camera.IncreaseDistance();
+                case Key.Right:
+                    camera.DecreaseZYAngle();
                     break;
                 case Key.Up:
-                    camera.DecreaseDistance();
-                    break;
-                case Key.U:
                     camera.IncreaseZXAngle();
                     break;
-                case Key.D:
+                case Key.Down:
                     camera.DecreaseZXAngle();
                     break;
-              //  case Key.Space:
-              //      cubeArrangementModel.AnimationEnabled = !cubeArrangementModel.AnimationEnabled;
-               //     break;
+                case Key.W:
+                    camera.setOffset(0);
+                    break;
+                case Key.A:
+                    camera.setOffset(1);
+                    break;
+                case Key.S:
+                    camera.setOffset(2);
+                    break;
+                case Key.D:
+                    camera.setOffset(3);
+                    break;
+                case Key.Space:
+                    camera.setOffset(4);
+                    break;
+                case Key.ControlLeft:
+                    camera.setOffset(5);
+                    break;
+                    
             }
         }
 
