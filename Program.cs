@@ -16,7 +16,7 @@ namespace GrafikaSzeminarium
 
         private static CameraDescriptor camera = new CameraDescriptor();
 
-        private static CubeArrangementModel cubeArrangementModel = new CubeArrangementModel();
+        private static CubeArrangementModel[] cubeArrangementModels =  new CubeArrangementModel[27];
 
         private const string ModelMatrixVariableName = "uModel";
         private const string ViewMatrixVariableName = "uView";
@@ -83,6 +83,8 @@ namespace GrafikaSzeminarium
 
         private static void GraphicWindow_Load()
         {
+            cubes = new ModelObjectDescriptor[27];
+            
             Gl = graphicWindow.CreateOpenGL();
 
             var inputContext = graphicWindow.CreateInput();
@@ -175,7 +177,7 @@ namespace GrafikaSzeminarium
                     camera.setOffset(5);
                     break;
                 case Key.Number1:
-                    cubeArrangementModel.AnimationEnabled = true;
+                    cubeArrangementModels[0].AnimationEnabled = true;
                     break;
                     
             }
@@ -185,7 +187,8 @@ namespace GrafikaSzeminarium
         {
             // NO OpenGL
             // make it threadsafe
-            cubeArrangementModel.AdvanceTime(deltaTime);
+            for (int i=0; i < cubeArrangementModels.Length; i++)
+                cubeArrangementModels[i].AdvanceTime(deltaTime);
         }
 
         private static unsafe void GraphicWindow_Render(double deltaTime)
@@ -228,7 +231,7 @@ namespace GrafikaSzeminarium
                         else
                             var[2] = 0; 
                         trans = Matrix4X4.CreateTranslation((float)i + var[0], (float)j + var[1], (float)k + var[2]);
-                        var modelMatrixDiamondCube = Matrix4X4.CreateRotationY((float)cubeArrangementModel.DiamondCubeGlobalYAngle);
+                        var modelMatrixDiamondCube = Matrix4X4.CreateRotationY((float)cubeArrangementModels[index].DiamondCubeGlobalYAngle);
                         trans *= modelMatrixDiamondCube;
                         SetMatrix(trans, ModelMatrixVariableName);
                         DrawModelObject(cubes[index]);
