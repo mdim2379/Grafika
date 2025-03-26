@@ -156,9 +156,9 @@ namespace GrafikaSzeminarium
                 case Key.D:
                     camera.DecreaseZXAngle();
                     break;
-                case Key.Space:
-                    cubeArrangementModel.AnimationEnabled = !cubeArrangementModel.AnimationEnabled;
-                    break;
+              //  case Key.Space:
+              //      cubeArrangementModel.AnimationEnabled = !cubeArrangementModel.AnimationEnabled;
+               //     break;
             }
         }
 

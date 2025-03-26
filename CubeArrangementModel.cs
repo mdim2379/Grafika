@@ -43,12 +43,12 @@ namespace Szeminarium
             Time += deltaTime;
 
             // lets produce an oscillating scale in time
-            CenterCubeScale = 1 + 0.2 * Math.Sin(1.5 * Time);
+          //  CenterCubeScale = 1 + 0.2 * Math.Sin(1.5 * Time);
 
             // the rotation angle is time x angular velocity;
-            DiamondCubeLocalAngle = Time * 10;
+           // DiamondCubeLocalAngle = Time * 10;
 
-            DiamondCubeGlobalYAngle = -Time;
+          //  DiamondCubeGlobalYAngle = -Time;
         }
     }
 }
