@@ -186,16 +186,50 @@ namespace GrafikaSzeminarium
             var modelMatrixCenterCube = Matrix4X4.CreateScale((float)cubeArrangementModel.CenterCubeScale);
             SetMatrix(modelMatrixCenterCube, ModelMatrixVariableName);
             DrawModelObject(cube);
-
-            Matrix4X4<float> diamondScale = Matrix4X4.CreateScale(0.25f);
-            Matrix4X4<float> rotx = Matrix4X4.CreateRotationX((float)Math.PI / 4f);
-            Matrix4X4<float> rotz = Matrix4X4.CreateRotationZ((float)Math.PI / 4f);
+            
+            Matrix4X4<float> diamondScale = Matrix4X4.CreateScale(1f);
+            Matrix4X4<float> rotx = Matrix4X4.CreateRotationX(0f);
+            Matrix4X4<float> rotz = Matrix4X4.CreateRotationZ(0f);
             Matrix4X4<float> roty = Matrix4X4.CreateRotationY((float)cubeArrangementModel.DiamondCubeLocalAngle);
-            Matrix4X4<float> trans = Matrix4X4.CreateTranslation(1f, 1f, 0f);
+
+
+            Matrix4X4<float> trans = new Matrix4X4<float>();
             Matrix4X4<float> rotGlobalY = Matrix4X4.CreateRotationY((float)cubeArrangementModel.DiamondCubeGlobalYAngle);
-            Matrix4X4<float> dimondCubeModelMatrix = diamondScale * rotx * rotz * roty * trans * rotGlobalY;
-            SetMatrix(dimondCubeModelMatrix, ModelMatrixVariableName);
-            DrawModelObject(cube);
+            Matrix4X4<float> dimondCubeModelMatrix = new Matrix4X4<float>();
+            
+            
+            float[] var = new float[3];
+            for (int i=-1;i<=1;i++)
+                for (int j=-1;j<=1;j++)
+                    for (int k = -1; k <= 1; k++)
+                    {
+                        if (i == -1)
+                            var[0] = -0.1f;
+                        else if (i == 1)
+                            var[0] = 0.1f;
+                        else
+                            var[0] = 0;
+                        if (j == -1)
+                            var[1] = -0.1f;
+                        else if (j == 1)
+                            var[1] = 0.1f;
+                        else
+                            var[1] = 0;
+                        if (k == -1)
+                            var[2] = -0.1f;
+                        else if (k == 1)
+                            var[2] = 0.1f;
+                        else
+                            var[2] = 0;
+                            if (!(i == 0 && j == 0 && k == 0)){
+                                trans = Matrix4X4.CreateTranslation((float)i + var[0], (float)j + var[1], (float)k + var[2]);
+                                rotGlobalY = Matrix4X4.CreateRotationY((float)cubeArrangementModel.DiamondCubeGlobalYAngle);
+                                dimondCubeModelMatrix = diamondScale * rotx * rotz * roty * trans * rotGlobalY;
+                                SetMatrix(dimondCubeModelMatrix, ModelMatrixVariableName);
+                                DrawModelObject(cube);
+                            }
+                        }
+            
 
         }
 
