@@ -12,7 +12,7 @@ namespace GrafikaSzeminarium
 
         private static GL Gl;
 
-        private static ModelObjectDescriptor cube;
+        private static ModelObjectDescriptor[] cubes;
 
         private static CameraDescriptor camera = new CameraDescriptor();
 
@@ -73,7 +73,11 @@ namespace GrafikaSzeminarium
 
         private static void GraphicWindow_Closing()
         {
-            cube.Dispose();
+            foreach (ModelObjectDescriptor i in cubes)
+            {
+                i.Dispose();
+            }
+
             Gl.DeleteProgram(program);
         }
 
@@ -86,8 +90,10 @@ namespace GrafikaSzeminarium
             {
                 keyboard.KeyDown += Keyboard_KeyDown;
             }
-
-            cube = ModelObjectDescriptor.CreateCube(Gl);
+            
+            cubes = new ModelObjectDescriptor[9];
+            for (int i = 0; i < cubes.Length; i++)
+                cubes[i] = ModelObjectDescriptor.CreateCube(Gl, i);
 
             Gl.ClearColor(System.Drawing.Color.White);
             
@@ -185,7 +191,7 @@ namespace GrafikaSzeminarium
 
             var modelMatrixCenterCube = Matrix4X4.CreateScale((float)cubeArrangementModel.CenterCubeScale);
             SetMatrix(modelMatrixCenterCube, ModelMatrixVariableName);
-            DrawModelObject(cube);
+
             
             Matrix4X4<float> diamondScale = Matrix4X4.CreateScale(1f);
             Matrix4X4<float> rotx = Matrix4X4.CreateRotationX(0f);
@@ -197,7 +203,7 @@ namespace GrafikaSzeminarium
             Matrix4X4<float> rotGlobalY = Matrix4X4.CreateRotationY((float)cubeArrangementModel.DiamondCubeGlobalYAngle);
             Matrix4X4<float> dimondCubeModelMatrix = new Matrix4X4<float>();
             
-            
+            DrawModelObject(cubes[0]);
             float[] var = new float[3];
             for (int i=-1;i<=1;i++)
                 for (int j=-1;j<=1;j++)
@@ -220,17 +226,15 @@ namespace GrafikaSzeminarium
                         else if (k == 1)
                             var[2] = 0.1f;
                         else
-                            var[2] = 0;
-                            if (!(i == 0 && j == 0 && k == 0)){
+                            var[2] = 0; 
+                        if (!(i == 0 && j == 0 && k == 0)){
                                 trans = Matrix4X4.CreateTranslation((float)i + var[0], (float)j + var[1], (float)k + var[2]);
                                 rotGlobalY = Matrix4X4.CreateRotationY((float)cubeArrangementModel.DiamondCubeGlobalYAngle);
                                 dimondCubeModelMatrix = diamondScale * rotx * rotz * roty * trans * rotGlobalY;
                                 SetMatrix(dimondCubeModelMatrix, ModelMatrixVariableName);
-                                DrawModelObject(cube);
-                            }
+                                DrawModelObject(cubes[0]); 
                         }
-            
-
+                    }
         }
 
         private static unsafe void DrawModelObject(ModelObjectDescriptor modelObject)

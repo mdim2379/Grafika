@@ -20,8 +20,8 @@ namespace GrafikaSzeminarium
         public uint IndexArrayLength { get; private set; }
 
         private GL Gl;
-
-        public unsafe static ModelObjectDescriptor CreateCube(GL Gl)
+        
+        public unsafe static ModelObjectDescriptor CreateCube(GL Gl, int tipus)
         {
             uint vao = Gl.GenVertexArray();
             Gl.BindVertexArray(vao);
@@ -61,32 +61,32 @@ namespace GrafikaSzeminarium
             };
 
             float[] colorArray = new float[] {
+                1.0f, 0.0f, 0.0f, 1.0f, //RED TETEJE
                 1.0f, 0.0f, 0.0f, 1.0f,
                 1.0f, 0.0f, 0.0f, 1.0f,
                 1.0f, 0.0f, 0.0f, 1.0f,
-                1.0f, 0.0f, 0.0f, 1.0f,
 
+                0.0f, 1.0f, 0.0f, 1.0f, //GREEN ELEJE
                 0.0f, 1.0f, 0.0f, 1.0f,
                 0.0f, 1.0f, 0.0f, 1.0f,
                 0.0f, 1.0f, 0.0f, 1.0f,
-                0.0f, 1.0f, 0.0f, 1.0f,
 
+                0.0f, 0.0f, 1.0f, 1.0f,//BLUE BAL
                 0.0f, 0.0f, 1.0f, 1.0f,
                 0.0f, 0.0f, 1.0f, 1.0f,
                 0.0f, 0.0f, 1.0f, 1.0f,
-                0.0f, 0.0f, 1.0f, 1.0f,
 
-                1.0f, 0.0f, 1.0f, 1.0f,
+                1.0f, 0.0f, 1.0f, 1.0f, //MAGENTA ROZSASZIN VALAMI ALJA
                 1.0f, 0.0f, 1.0f, 1.0f,
                 1.0f, 0.0f, 1.0f, 1.0f,
                 1.0f, 0.0f, 1.0f, 1.0f,
 
-                0.0f, 1.0f, 1.0f, 1.0f,
+                0.0f, 1.0f, 1.0f, 1.0f, //CIAN HATA
                 0.0f, 1.0f, 1.0f, 1.0f,
                 0.0f, 1.0f, 1.0f, 1.0f,
                 0.0f, 1.0f, 1.0f, 1.0f,
 
-                1.0f, 1.0f, 0.0f, 1.0f,
+                1.0f, 1.0f, 0.0f, 1.0f, //YELLOW JOBB
                 1.0f, 1.0f, 0.0f, 1.0f,
                 1.0f, 1.0f, 0.0f, 1.0f,
                 1.0f, 1.0f, 0.0f, 1.0f,
