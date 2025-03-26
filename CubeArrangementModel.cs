@@ -32,6 +32,7 @@ namespace Szeminarium
         /// The angle with which the diamond cube is rotated around the global Y axes.
         /// </summary>
         public double DiamondCubeGlobalYAngle { get; private set; } = 0;
+        public double DiamondCubeGlobalZAngle { get; private set; } = 0;
 
         internal void AdvanceTime(double deltaTime)
         {

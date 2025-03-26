@@ -16,7 +16,7 @@ namespace GrafikaSzeminarium
 
         private static CameraDescriptor camera = new CameraDescriptor();
 
-        private static CubeArrangementModel[] cubeArrangementModels = new CubeArrangementModel[27];
+        private static CubeArrangementModel cubeArrangementModel = new CubeArrangementModel();
 
         private const string ModelMatrixVariableName = "uModel";
         private const string ViewMatrixVariableName = "uView";
@@ -200,21 +200,8 @@ namespace GrafikaSzeminarium
 
             var projectionMatrix = Matrix4X4.CreatePerspectiveFieldOfView<float>((float)(Math.PI / 2), 1024f / 768f, 0.1f, 100f);
             SetMatrix(projectionMatrix, ProjectionMatrixVariableName);
-
-
-            var modelMatrixCenterCube = Matrix4X4.CreateScale((float)cubeArrangementModel.CenterCubeScale);
-            SetMatrix(modelMatrixCenterCube, ModelMatrixVariableName);
-
             
-            Matrix4X4<float> diamondScale = Matrix4X4.CreateScale(1f);
-            Matrix4X4<float> rotx = Matrix4X4.CreateRotationX(0f);
-            Matrix4X4<float> rotz = Matrix4X4.CreateRotationZ(0f);
-            Matrix4X4<float> roty = Matrix4X4.CreateRotationY((float)cubeArrangementModel.DiamondCubeLocalAngle);
-
-
             Matrix4X4<float> trans = new Matrix4X4<float>();
-            Matrix4X4<float> rotGlobalY = Matrix4X4.CreateRotationY((float)cubeArrangementModel.DiamondCubeGlobalYAngle);
-            Matrix4X4<float> dimondCubeModelMatrix = new Matrix4X4<float>();
             
             int index = 0;
             float[] var = new float[3];
@@ -241,9 +228,9 @@ namespace GrafikaSzeminarium
                         else
                             var[2] = 0; 
                         trans = Matrix4X4.CreateTranslation((float)i + var[0], (float)j + var[1], (float)k + var[2]);
-                        rotGlobalY = Matrix4X4.CreateRotationY((float)cubeArrangementModel.DiamondCubeGlobalYAngle);
-                        dimondCubeModelMatrix = diamondScale * rotx * rotz * roty * trans * rotGlobalY;
-                        SetMatrix(dimondCubeModelMatrix, ModelMatrixVariableName);
+                        var modelMatrixDiamondCube = Matrix4X4.CreateRotationY((float)cubeArrangementModel.DiamondCubeGlobalYAngle);
+                        trans *= modelMatrixDiamondCube;
+                        SetMatrix(trans, ModelMatrixVariableName);
                         DrawModelObject(cubes[index]);
                         index++;
                     }
