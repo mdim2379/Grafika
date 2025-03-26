@@ -180,7 +180,16 @@ namespace GrafikaSzeminarium
                     camera.setOffset(5);
                     break;
                 case Key.Number1:
-                    cubeArrangementModels[0].AnimationEnabled = true;
+                    cubeArrangementModels[6].AnimationEnabled = true;
+                    cubeArrangementModels[7].AnimationEnabled = true;
+                    cubeArrangementModels[8].AnimationEnabled = true;
+                    cubeArrangementModels[15].AnimationEnabled = true;
+                    cubeArrangementModels[16].AnimationEnabled = true;
+                    cubeArrangementModels[17].AnimationEnabled = true;
+                    cubeArrangementModels[24].AnimationEnabled = true;
+                    cubeArrangementModels[25].AnimationEnabled = true;
+                    cubeArrangementModels[26].AnimationEnabled = true;
+                    
                     break;
                     
             }
