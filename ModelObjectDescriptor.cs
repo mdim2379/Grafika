@@ -23,6 +23,42 @@ namespace GrafikaSzeminarium
         
         public unsafe static ModelObjectDescriptor CreateCube(GL Gl, int tipus)
         {
+            void felso(float[] a)
+            {
+                for (int i = 0; i < 16; i++)
+                        a[i] = 0f;
+            }
+
+            void eleje(float[] a)
+            {
+                for (int i = 16; i < 32; i++)
+                        a[i] = 0f;
+            }
+
+            void bal(float[] a)
+            {
+                for (int i = 32; i < 48; i++)
+                        a[i] = 0f;
+            }
+            
+            void alja(float[] a)
+            {
+                for (int i = 48; i < 64; i++)
+                        a[i] = 0f;
+            }
+
+            void hata(float[] a)
+            {
+                for (int i = 64; i < 80; i++)
+                        a[i] = 0f;
+            }
+            
+            void jobb(float[] a)
+            {
+                for (int i = 80; i < 96; i++)
+                        a[i] = 0f;
+            }
+
             uint vao = Gl.GenVertexArray();
             Gl.BindVertexArray(vao);
 
@@ -91,6 +127,172 @@ namespace GrafikaSzeminarium
                 1.0f, 1.0f, 0.0f, 1.0f,
                 1.0f, 1.0f, 0.0f, 1.0f,
             };
+            switch (tipus)
+            {
+                case 0:
+                    felso(colorArray);
+                    eleje(colorArray);
+                    jobb(colorArray);
+                    break;
+                case 1:
+                    eleje(colorArray);
+                    hata(colorArray);
+                    jobb(colorArray);
+                    felso(colorArray);
+                    break;
+                case 2:
+                    hata(colorArray);
+                    jobb(colorArray);
+                    felso(colorArray);
+                    break;
+                case 3:
+                    eleje(colorArray);
+                    jobb(colorArray);
+                    felso(colorArray);
+                    alja(colorArray);
+                    break;
+                case 4:
+                    eleje(colorArray);
+                    hata(colorArray);
+                    jobb(colorArray);
+                    felso(colorArray);
+                    alja(colorArray);
+                    break;
+                case 5:
+                    hata(colorArray);
+                    jobb(colorArray);
+                    felso(colorArray);
+                    alja(colorArray);
+                    break;
+                case 6:
+                    eleje(colorArray);
+                    jobb(colorArray);
+                    alja(colorArray);
+                    break;
+                case 7:
+                    eleje(colorArray);
+                    hata(colorArray);
+                    jobb(colorArray);
+                    alja(colorArray);
+                    break;
+                case 8:
+                    hata(colorArray);
+                    jobb(colorArray);
+                    alja(colorArray);
+                    break;
+                case 9:
+                    eleje(colorArray);
+                    jobb(colorArray);
+                    bal(colorArray);
+                    felso(colorArray);
+                    break;
+                case 10:
+                    eleje(colorArray);
+                    hata(colorArray);
+                    jobb(colorArray);
+                    bal(colorArray);
+                    felso(colorArray);
+                    break;
+                case 11:
+                    hata(colorArray);
+                    jobb(colorArray);
+                    bal(colorArray);
+                    felso(colorArray);
+                    break;
+                case 12:
+                    eleje(colorArray);
+                    jobb(colorArray);
+                    bal(colorArray);
+                    felso(colorArray);
+                    alja(colorArray);
+                    break;
+                case 13:
+                    eleje(colorArray);
+                    hata(colorArray);
+                    jobb(colorArray);
+                    bal(colorArray);
+                    felso(colorArray);
+                    alja(colorArray);
+                    break;
+                case 14:
+                    hata(colorArray);
+                    jobb(colorArray);
+                    bal(colorArray);
+                    felso(colorArray);
+                    alja(colorArray);
+                    break;
+                case 15:
+                    eleje(colorArray);
+                    jobb(colorArray);
+                    bal(colorArray);
+                    alja(colorArray);
+                    break;
+                case 16:
+                    eleje(colorArray);
+                    hata(colorArray);
+                    jobb(colorArray);
+                    bal(colorArray);
+                    alja(colorArray);
+                    break;
+                case 17:
+                    hata(colorArray);
+                    jobb(colorArray);
+                    bal(colorArray);
+                    alja(colorArray);
+                    break;
+                case 18:
+                    eleje(colorArray);
+                    bal(colorArray);
+                    felso(colorArray);
+                    break;
+                case 19:
+                    eleje(colorArray);
+                    hata(colorArray);
+                    bal(colorArray);
+                    felso(colorArray);
+                    break;
+                case 20:
+                    hata(colorArray);
+                    bal(colorArray);
+                    felso(colorArray);
+                    break;
+                case 21:
+                    eleje(colorArray);
+                    bal(colorArray);
+                    felso(colorArray);
+                    alja(colorArray);
+                    break;
+                case 22:
+                    eleje(colorArray);
+                    hata(colorArray);
+                    bal(colorArray);
+                    felso(colorArray);
+                    alja(colorArray);
+                    break;
+                case 23:
+                    hata(colorArray);
+                    bal(colorArray);
+                    felso(colorArray);
+                    alja(colorArray);
+                    break;
+                case 24:
+                    eleje(colorArray);
+                    bal(colorArray);
+                    alja(colorArray);
+                    break;
+                case 25:
+                    eleje(colorArray);
+                    hata(colorArray);
+                    bal(colorArray);
+                    alja(colorArray);
+                    break;
+                case 26:
+                    hata(colorArray);
+                    bal(colorArray);
+                    alja(colorArray);
+                    break;
+            }
+
 
             uint[] indexArray = new uint[] {
                 0, 1, 2,
