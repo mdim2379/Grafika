@@ -189,7 +189,6 @@ namespace GrafikaSzeminarium
                     cubeArrangementModels[24].AnimationEnabled = true;
                     cubeArrangementModels[25].AnimationEnabled = true;
                     cubeArrangementModels[26].AnimationEnabled = true;
-                    
                     break;
                     
             }
