@@ -36,7 +36,6 @@ namespace Szeminarium
 
         internal void AdvanceTime(double deltaTime)
         {
-            System.Console.WriteLine(deltaTime);
             // we do not advance the simulation when animation is stopped
             if (AnimationEnabled)
             {

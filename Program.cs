@@ -93,6 +93,9 @@ namespace GrafikaSzeminarium
                 keyboard.KeyDown += Keyboard_KeyDown;
             }
             
+            for(int i=0; i<27; i++)
+                cubeArrangementModels[i] = new CubeArrangementModel();
+            
             cubes = new ModelObjectDescriptor[27];
             for (int i = 0; i < cubes.Length; i++)
                 cubes[i] = ModelObjectDescriptor.CreateCube(Gl, i);
