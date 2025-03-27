@@ -347,16 +347,16 @@ namespace GrafikaSzeminarium
                     pointerek[26].Forgatasok[0] = true;
                     
                     temp = pointerek[18];
-                    pointerek[18] = pointerek[22];
-                    pointerek[22] = pointerek[24];
-                    pointerek[24] = pointerek[20];
-                    pointerek[20] = temp;
+                    pointerek[18] = pointerek[20];
+                    pointerek[20] = pointerek[26];
+                    pointerek[26] = pointerek[24];
+                    pointerek[24] = temp;
                     
                     temp = pointerek[25];
-                    pointerek[25] = pointerek[23];
-                    pointerek[23] = pointerek[17];
-                    pointerek[17] = pointerek[19];
-                    pointerek[19] = temp;
+                    pointerek[25] = pointerek[21];
+                    pointerek[21] = pointerek[19];
+                    pointerek[19] = pointerek[23];
+                    pointerek[23] = temp;
                     break;
                 
                 case Key.Keypad4:
@@ -371,16 +371,16 @@ namespace GrafikaSzeminarium
                     pointerek[26].Forgatasok[1] = true;
                     
                     temp = pointerek[18];
-                    pointerek[18] = pointerek[20];
-                    pointerek[20] = pointerek[24];
-                    pointerek[24] = pointerek[22];
-                    pointerek[22] = temp;
+                    pointerek[18] = pointerek[24];
+                    pointerek[24] = pointerek[26];
+                    pointerek[26] = pointerek[20];
+                    pointerek[20] = temp;
                     
                     temp = pointerek[25];
-                    pointerek[25] = pointerek[19];
-                    pointerek[19] = pointerek[17];
-                    pointerek[17] = pointerek[23];
-                    pointerek[23] = temp;
+                    pointerek[25] = pointerek[23];
+                    pointerek[23] = pointerek[19];
+                    pointerek[19] = pointerek[21];
+                    pointerek[21] = temp;
                     break;
                 
                 case Key.Number5:
