@@ -18,6 +18,8 @@ namespace GrafikaSzeminarium
 
         private static CubeArrangementModel[] cubeArrangementModels =  new CubeArrangementModel[27];
 
+        private static CubeArrangementModel[] pointerek = new CubeArrangementModel[27];
+
         private const string ModelMatrixVariableName = "uModel";
         private const string ViewMatrixVariableName = "uView";
         private const string ProjectionMatrixVariableName = "uProjection";
@@ -101,6 +103,9 @@ namespace GrafikaSzeminarium
             cubes = new ModelObjectDescriptor[27];
             for (int i = 0; i < cubes.Length; i++)
                 cubes[i] = ModelObjectDescriptor.CreateCube(Gl, i);
+            
+            for (int i = 0; i < 27; i++)
+                pointerek[i] = cubeArrangementModels[i];
 
             Gl.ClearColor(System.Drawing.Color.White);
             
@@ -149,7 +154,7 @@ namespace GrafikaSzeminarium
 
         private static void Keyboard_KeyDown(IKeyboard keyboard, Key key, int arg3)
         {
-            CubeArrangementModel temp = new CubeArrangementModel();
+            CubeArrangementModel temp;
             switch (key)
             {
                 case Key.Left:
@@ -185,185 +190,293 @@ namespace GrafikaSzeminarium
                 
                 case Key.Number1:
                     elso = false;
-                    cubeArrangementModels[6].Forgatasok[2] = true;
-                    cubeArrangementModels[7].Forgatasok[2] = true;
-                    cubeArrangementModels[8].Forgatasok[2] = true;
-                    cubeArrangementModels[15].Forgatasok[2] = true;
-                    cubeArrangementModels[16].Forgatasok[2] = true;
-                    cubeArrangementModels[17].Forgatasok[2]= true;
-                    cubeArrangementModels[24].Forgatasok[2] = true;
-                    cubeArrangementModels[25].Forgatasok[2] = true;
-                    cubeArrangementModels[26].Forgatasok[2] = true;
+                    pointerek[6].Forgatasok[2] = true;
+                    pointerek[7].Forgatasok[2] = true;
+                    pointerek[8].Forgatasok[2] = true;
+                    pointerek[15].Forgatasok[2] = true;
+                    pointerek[16].Forgatasok[2] = true;
+                    pointerek[17].Forgatasok[2]= true;
+                    pointerek[24].Forgatasok[2] = true;
+                    pointerek[25].Forgatasok[2] = true;
+                    pointerek[26].Forgatasok[2] = true;
+
+                    temp = pointerek[6];
+                    pointerek[6] = pointerek[24];
+                    pointerek[24] = pointerek[26];
+                    pointerek[26] = pointerek[8];
+                    pointerek[8] = temp;
                     
-                    temp = cubeArrangementModels[6];
-                    cubeArrangementModels[6] = cubeArrangementModels[24];
-                    cubeArrangementModels[24] = cubeArrangementModels[26];
-                    cubeArrangementModels[26] = cubeArrangementModels[8];
-                    cubeArrangementModels[8] = temp;
-                    
-                    temp = cubeArrangementModels[15];
-                    cubeArrangementModels[15] = cubeArrangementModels[25];
-                    cubeArrangementModels[25] = cubeArrangementModels[17];
-                    cubeArrangementModels[17] = cubeArrangementModels[7];
-                    cubeArrangementModels[7] = temp;
-                    
+                    temp = pointerek[15];
+                    pointerek[15] = pointerek[25];
+                    pointerek[25] = pointerek[17];
+                    pointerek[17] = pointerek[7];
+                    pointerek[7] = temp;
                     break;
                 
                 case Key.Keypad1:
-                    cubeArrangementModels[6].Forgatasok[3] = true;
-                    cubeArrangementModels[7].Forgatasok[3] = true;
-                    cubeArrangementModels[8].Forgatasok[3] = true;
-                    cubeArrangementModels[15].Forgatasok[3] = true;
-                    cubeArrangementModels[16].Forgatasok[3] = true;
-                    cubeArrangementModels[17].Forgatasok[3]= true;
-                    cubeArrangementModels[24].Forgatasok[3] = true;
-                    cubeArrangementModels[25].Forgatasok[3] = true;
-                    cubeArrangementModels[26].Forgatasok[3] = true;
+                    pointerek[6].Forgatasok[3] = true;
+                    pointerek[7].Forgatasok[3] = true;
+                    pointerek[8].Forgatasok[3] = true;
+                    pointerek[15].Forgatasok[3] = true;
+                    pointerek[16].Forgatasok[3] = true;
+                    pointerek[17].Forgatasok[3]= true;
+                    pointerek[24].Forgatasok[3] = true;
+                    pointerek[25].Forgatasok[3] = true;
+                    pointerek[26].Forgatasok[3] = true;
+                    
+                    temp = pointerek[6];
+                    pointerek[6] = pointerek[8];
+                    pointerek[8] = pointerek[26];
+                    pointerek[26] = pointerek[24];
+                    pointerek[24] = temp;
+                    
+                    temp = pointerek[15];
+                    pointerek[15] = pointerek[7];
+                    pointerek[7] = pointerek[17];
+                    pointerek[17] = pointerek[25];
+                    pointerek[25] = temp;
+                    
                     break;
                     
                 case Key.Number2:
-                    cubeArrangementModels[8].Forgatasok[4] = true;
-                    cubeArrangementModels[5].Forgatasok[4] = true;
-                    cubeArrangementModels[2].Forgatasok[4] = true;
-                    cubeArrangementModels[17].Forgatasok[4]= true;
-                    cubeArrangementModels[14].Forgatasok[4] = true;
-                    cubeArrangementModels[11].Forgatasok[4] = true;
-                    cubeArrangementModels[26].Forgatasok[4] = true;
-                    cubeArrangementModels[23].Forgatasok[4] = true;
-                    cubeArrangementModels[20].Forgatasok[4] = true;
+                    pointerek[8].Forgatasok[4] = true;
+                    pointerek[5].Forgatasok[4] = true;
+                    pointerek[2].Forgatasok[4] = true;
+                    pointerek[17].Forgatasok[4]= true;
+                    pointerek[14].Forgatasok[4] = true;
+                    pointerek[11].Forgatasok[4] = true;
+                    pointerek[26].Forgatasok[4] = true;
+                    pointerek[23].Forgatasok[4] = true;
+                    pointerek[20].Forgatasok[4] = true;
+                    
+                    temp = pointerek[8];
+                    pointerek[8] = pointerek[26];
+                    pointerek[26] = pointerek[20];
+                    pointerek[20] = pointerek[2];
+                    pointerek[2] = temp;
+                    
+                    temp = pointerek[17];
+                    pointerek[17] = pointerek[23];
+                    pointerek[23] = pointerek[11];
+                    pointerek[11] = pointerek[5];
+                    pointerek[5] = temp;
                     break;
                 
                 case Key.Keypad2:
-                    cubeArrangementModels[8].Forgatasok[5] = true;
-                    cubeArrangementModels[5].Forgatasok[5] = true;
-                    cubeArrangementModels[2].Forgatasok[5] = true;
-                    cubeArrangementModels[17].Forgatasok[5]= true;
-                    cubeArrangementModels[14].Forgatasok[5] = true;
-                    cubeArrangementModels[11].Forgatasok[5] = true;
-                    cubeArrangementModels[26].Forgatasok[5] = true;
-                    cubeArrangementModels[23].Forgatasok[5] = true;
-                    cubeArrangementModels[20].Forgatasok[5] = true;
+                    pointerek[8].Forgatasok[5] = true;
+                    pointerek[5].Forgatasok[5] = true;
+                    pointerek[2].Forgatasok[5] = true;
+                    pointerek[17].Forgatasok[5]= true;
+                    pointerek[14].Forgatasok[5] = true;
+                    pointerek[11].Forgatasok[5] = true;
+                    pointerek[26].Forgatasok[5] = true;
+                    pointerek[23].Forgatasok[5] = true;
+                    pointerek[20].Forgatasok[5] = true;
                     
-                    temp = cubeArrangementModels[8];
-                    cubeArrangementModels[8] = cubeArrangementModels[26];
-                    cubeArrangementModels[26] = cubeArrangementModels[20];
-                    cubeArrangementModels[20] = cubeArrangementModels[2];
-                    cubeArrangementModels[2] = temp;
+                    temp = pointerek[8];
+                    pointerek[8] = pointerek[2];
+                    pointerek[2] = pointerek[20];
+                    pointerek[20] = pointerek[26];
+                    pointerek[26] = temp;
                     
-                    temp = cubeArrangementModels[17];
-                    cubeArrangementModels[17] = cubeArrangementModels[23];
-                    cubeArrangementModels[23] = cubeArrangementModels[11];
-                    cubeArrangementModels[11] = cubeArrangementModels[5];
-                    cubeArrangementModels[5] = temp;
+                    temp = pointerek[17];
+                    pointerek[17] = pointerek[5];
+                    pointerek[5] = pointerek[11];
+                    pointerek[11] = pointerek[23];
+                    pointerek[23] = temp;
                     break;
                 
                 case Key.Number3:
-                    cubeArrangementModels[0].Forgatasok[0] = true;
-                    cubeArrangementModels[1].Forgatasok[0] = true;
-                    cubeArrangementModels[2].Forgatasok[0] = true;
-                    cubeArrangementModels[3].Forgatasok[0] = true;
-                    cubeArrangementModels[4].Forgatasok[0] = true;
-                    cubeArrangementModels[5].Forgatasok[0] = true;
-                    cubeArrangementModels[6].Forgatasok[0] = true;
-                    cubeArrangementModels[7].Forgatasok[0] = true;
-                    cubeArrangementModels[8].Forgatasok[0] = true;
+                    pointerek[0].Forgatasok[0] = true;
+                    pointerek[1].Forgatasok[0] = true;
+                    pointerek[2].Forgatasok[0] = true;
+                    pointerek[3].Forgatasok[0] = true;
+                    pointerek[4].Forgatasok[0] = true;
+                    pointerek[5].Forgatasok[0] = true;
+                    pointerek[6].Forgatasok[0] = true;
+                    pointerek[7].Forgatasok[0] = true;
+                    pointerek[8].Forgatasok[0] = true;
 
-                    temp = cubeArrangementModels[0];
-                    cubeArrangementModels[0] = cubeArrangementModels[2];
-                    cubeArrangementModels[2] = cubeArrangementModels[8];
-                    cubeArrangementModels[8] = cubeArrangementModels[6];
-                    cubeArrangementModels[6] = temp;
+                    temp = pointerek[0];
+                    pointerek[0] = pointerek[2];
+                    pointerek[2] = pointerek[8];
+                    pointerek[8] = pointerek[6];
+                    pointerek[6] = temp;
                     
-                    temp = cubeArrangementModels[1];
-                    cubeArrangementModels[1] = cubeArrangementModels[5];
-                    cubeArrangementModels[5] = cubeArrangementModels[7];
-                    cubeArrangementModels[7] = cubeArrangementModels[3];
-                    cubeArrangementModels[3] = temp;
+                    temp = pointerek[1];
+                    pointerek[1] = pointerek[5];
+                    pointerek[5] = pointerek[7];
+                    pointerek[7] = pointerek[3];
+                    pointerek[3] = temp;
                     
                     break;
                 
                 case Key.Keypad3:
-                    cubeArrangementModels[0].Forgatasok[1] = true;
-                    cubeArrangementModels[1].Forgatasok[1] = true;
-                    cubeArrangementModels[2].Forgatasok[1] = true;
-                    cubeArrangementModels[3].Forgatasok[1]= true;
-                    cubeArrangementModels[4].Forgatasok[1] = true;
-                    cubeArrangementModels[5].Forgatasok[1] = true;
-                    cubeArrangementModels[6].Forgatasok[1] = true;
-                    cubeArrangementModels[7].Forgatasok[1] = true;
-                    cubeArrangementModels[8].Forgatasok[1] = true;
+                    pointerek[0].Forgatasok[1] = true;
+                    pointerek[1].Forgatasok[1] = true;
+                    pointerek[2].Forgatasok[1] = true;
+                    pointerek[3].Forgatasok[1]= true;
+                    pointerek[4].Forgatasok[1] = true;
+                    pointerek[5].Forgatasok[1] = true;
+                    pointerek[6].Forgatasok[1] = true;
+                    pointerek[7].Forgatasok[1] = true;
+                    pointerek[8].Forgatasok[1] = true;
+                
+                    temp = pointerek[0];
+                    pointerek[0] = pointerek[6];
+                    pointerek[6] = pointerek[8];
+                    pointerek[8] = pointerek[2];
+                    pointerek[2] = temp;
+                    
+                    temp = pointerek[1];
+                    pointerek[1] = pointerek[3];
+                    pointerek[3] = pointerek[7];
+                    pointerek[7] = pointerek[5];
+                    pointerek[5] = temp;
                     break;
                 
                 case Key.Number4:
-                    cubeArrangementModels[18].Forgatasok[0] = true;
-                    cubeArrangementModels[19].Forgatasok[0] = true;
-                    cubeArrangementModels[20].Forgatasok[0] = true;
-                    cubeArrangementModels[21].Forgatasok[0]= true;
-                    cubeArrangementModels[22].Forgatasok[0] = true;
-                    cubeArrangementModels[23].Forgatasok[0] = true;
-                    cubeArrangementModels[24].Forgatasok[0] = true;
-                    cubeArrangementModels[25].Forgatasok[0] = true;
-                    cubeArrangementModels[26].Forgatasok[0] = true;
+                    pointerek[18].Forgatasok[0] = true;
+                    pointerek[19].Forgatasok[0] = true;
+                    pointerek[20].Forgatasok[0] = true;
+                    pointerek[21].Forgatasok[0] = true;
+                    pointerek[22].Forgatasok[0] = true;
+                    pointerek[23].Forgatasok[0] = true;
+                    pointerek[24].Forgatasok[0] = true;
+                    pointerek[25].Forgatasok[0] = true;
+                    pointerek[26].Forgatasok[0] = true;
+                    
+                    temp = pointerek[18];
+                    pointerek[18] = pointerek[22];
+                    pointerek[22] = pointerek[24];
+                    pointerek[24] = pointerek[20];
+                    pointerek[20] = temp;
+                    
+                    temp = pointerek[25];
+                    pointerek[25] = pointerek[23];
+                    pointerek[23] = pointerek[17];
+                    pointerek[17] = pointerek[19];
+                    pointerek[19] = temp;
                     break;
                 
                 case Key.Keypad4:
-                    cubeArrangementModels[18].Forgatasok[1] = true;
-                    cubeArrangementModels[19].Forgatasok[1] = true;
-                    cubeArrangementModels[20].Forgatasok[1] = true;
-                    cubeArrangementModels[21].Forgatasok[1]= true;
-                    cubeArrangementModels[22].Forgatasok[1] = true;
-                    cubeArrangementModels[23].Forgatasok[1] = true;
-                    cubeArrangementModels[24].Forgatasok[1] = true;
-                    cubeArrangementModels[25].Forgatasok[1] = true;
-                    cubeArrangementModels[26].Forgatasok[1] = true;
+                    pointerek[18].Forgatasok[1] = true;
+                    pointerek[19].Forgatasok[1] = true;
+                    pointerek[20].Forgatasok[1] = true;
+                    pointerek[21].Forgatasok[1] = true;
+                    pointerek[22].Forgatasok[1] = true;
+                    pointerek[23].Forgatasok[1] = true;
+                    pointerek[24].Forgatasok[1] = true;
+                    pointerek[25].Forgatasok[1] = true;
+                    pointerek[26].Forgatasok[1] = true;
+                    
+                    temp = pointerek[18];
+                    pointerek[18] = pointerek[20];
+                    pointerek[20] = pointerek[24];
+                    pointerek[24] = pointerek[22];
+                    pointerek[22] = temp;
+                    
+                    temp = pointerek[25];
+                    pointerek[25] = pointerek[19];
+                    pointerek[19] = pointerek[17];
+                    pointerek[17] = pointerek[23];
+                    pointerek[23] = temp;
                     break;
                 
                 case Key.Number5:
-                    cubeArrangementModels[0].Forgatasok[2] = true;
-                    cubeArrangementModels[1].Forgatasok[2] = true;
-                    cubeArrangementModels[2].Forgatasok[2] = true;
-                    cubeArrangementModels[9].Forgatasok[2] = true;
-                    cubeArrangementModels[10].Forgatasok[2] = true;
-                    cubeArrangementModels[11].Forgatasok[2] = true;
-                    cubeArrangementModels[18].Forgatasok[2] = true;
-                    cubeArrangementModels[19].Forgatasok[2] = true;
-                    cubeArrangementModels[20].Forgatasok[2] = true;
+                    pointerek[0].Forgatasok[2] = true;
+                    pointerek[1].Forgatasok[2] = true;
+                    pointerek[2].Forgatasok[2] = true;
+                    pointerek[9].Forgatasok[2] = true;
+                    pointerek[10].Forgatasok[2] = true;
+                    pointerek[11].Forgatasok[2] = true;
+                    pointerek[18].Forgatasok[2] = true;
+                    pointerek[19].Forgatasok[2] = true;
+                    pointerek[20].Forgatasok[2] = true;
+
+                    temp = pointerek[0];
+                    pointerek[0] = pointerek[18];
+                    pointerek[18] = pointerek[20];
+                    pointerek[20] = pointerek[2];
+                    pointerek[2] = temp;
+                    
+                    temp = pointerek[1];
+                    pointerek[1] = pointerek[9];
+                    pointerek[9] = pointerek[19];
+                    pointerek[19] = pointerek[11];
+                    pointerek[11] = temp;
                     break;
                 
                 case Key.Keypad5:
-                    cubeArrangementModels[0].Forgatasok[3] = true;
-                    cubeArrangementModels[1].Forgatasok[3] = true;
-                    cubeArrangementModels[2].Forgatasok[3] = true;
-                    cubeArrangementModels[9].Forgatasok[3] = true;
-                    cubeArrangementModels[10].Forgatasok[3] = true;
-                    cubeArrangementModels[11].Forgatasok[3] = true;
-                    cubeArrangementModels[18].Forgatasok[3] = true;
-                    cubeArrangementModels[19].Forgatasok[3] = true;
-                    cubeArrangementModels[20].Forgatasok[3] = true;
+                    pointerek[0].Forgatasok[3] = true;
+                    pointerek[1].Forgatasok[3] = true;
+                    pointerek[2].Forgatasok[3] = true;
+                    pointerek[9].Forgatasok[3] = true;
+                    pointerek[10].Forgatasok[3] = true;
+                    pointerek[11].Forgatasok[3] = true;
+                    pointerek[18].Forgatasok[3] = true;
+                    pointerek[19].Forgatasok[3] = true;
+                    pointerek[20].Forgatasok[3] = true;
+                    
+                    temp = pointerek[0];
+                    pointerek[0] = pointerek[2];
+                    pointerek[2] = pointerek[20];
+                    pointerek[20] = pointerek[18];
+                    pointerek[18] = temp;
+                    
+                    temp = pointerek[1];
+                    pointerek[1] = pointerek[11];
+                    pointerek[11] = pointerek[19];
+                    pointerek[19] = pointerek[9];
+                    pointerek[9] = temp;
                     break;
                 
                 case Key.Number6:
-                    cubeArrangementModels[0].Forgatasok[4] = true;
-                    cubeArrangementModels[3].Forgatasok[4] = true;
-                    cubeArrangementModels[6].Forgatasok[4] = true;
-                    cubeArrangementModels[9].Forgatasok[4] = true;
-                    cubeArrangementModels[12].Forgatasok[4] = true;
-                    cubeArrangementModels[15].Forgatasok[4] = true;
-                    cubeArrangementModels[18].Forgatasok[4] = true;
-                    cubeArrangementModels[21].Forgatasok[4] = true;
-                    cubeArrangementModels[24].Forgatasok[4] = true;
+                    pointerek[0].Forgatasok[4] = true;
+                    pointerek[3].Forgatasok[4] = true;
+                    pointerek[6].Forgatasok[4] = true;
+                    pointerek[9].Forgatasok[4] = true;
+                    pointerek[12].Forgatasok[4] = true;
+                    pointerek[15].Forgatasok[4] = true;
+                    pointerek[18].Forgatasok[4] = true;
+                    pointerek[21].Forgatasok[4] = true;
+                    pointerek[24].Forgatasok[4] = true;
+
+                    temp = pointerek[6];
+                    pointerek[6] = pointerek[24];
+                    pointerek[24] = pointerek[18];
+                    pointerek[18] = pointerek[0];
+                    pointerek[0] = temp;
+                    
+                    temp = pointerek[3];
+                    pointerek[3] = pointerek[15];
+                    pointerek[15] = pointerek[21];
+                    pointerek[21] = pointerek[9];
+                    pointerek[9] = temp;
                     break;
                 
                 case Key.Keypad6:
-                    cubeArrangementModels[0].Forgatasok[5] = true;
-                    cubeArrangementModels[3].Forgatasok[5] = true;
-                    cubeArrangementModels[6].Forgatasok[5] = true;
-                    cubeArrangementModels[9].Forgatasok[5] = true;
-                    cubeArrangementModels[12].Forgatasok[5] = true;
-                    cubeArrangementModels[15].Forgatasok[5] = true;
-                    cubeArrangementModels[18].Forgatasok[5] = true;
-                    cubeArrangementModels[21].Forgatasok[5] = true;
-                    cubeArrangementModels[24].Forgatasok[5] = true;
+                    pointerek[0].Forgatasok[5] = true;
+                    pointerek[3].Forgatasok[5] = true;
+                    pointerek[6].Forgatasok[5] = true;
+                    pointerek[9].Forgatasok[5] = true;
+                    pointerek[12].Forgatasok[5] = true;
+                    pointerek[15].Forgatasok[5] = true;
+                    pointerek[18].Forgatasok[5] = true;
+                    pointerek[21].Forgatasok[5] = true;
+                    pointerek[24].Forgatasok[5] = true;
+                    
+                    temp = pointerek[6];
+                    pointerek[6] = pointerek[0];
+                    pointerek[0] = pointerek[18];
+                    pointerek[18] = pointerek[24];
+                    pointerek[24] = temp;
+                    
+                    temp = pointerek[3];
+                    pointerek[3] = pointerek[9];
+                    pointerek[9] = pointerek[21];
+                    pointerek[21] = pointerek[15];
+                    pointerek[15] = temp;
                     break;
             }
         }
