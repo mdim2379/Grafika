@@ -22,6 +22,8 @@ namespace GrafikaSzeminarium
         private const string ViewMatrixVariableName = "uView";
         private const string ProjectionMatrixVariableName = "uProjection";
 
+        private static bool elso = true;
+        
         private static readonly string VertexShaderSource = @"
         #version 330 core
         layout (location = 0) in vec3 vPos;
@@ -147,6 +149,7 @@ namespace GrafikaSzeminarium
 
         private static void Keyboard_KeyDown(IKeyboard keyboard, Key key, int arg3)
         {
+            CubeArrangementModel temp = new CubeArrangementModel();
             switch (key)
             {
                 case Key.Left:
@@ -179,18 +182,189 @@ namespace GrafikaSzeminarium
                 case Key.ControlLeft:
                     camera.setOffset(5);
                     break;
+                
                 case Key.Number1:
-                    cubeArrangementModels[6].AnimationEnabled = true;
-                    cubeArrangementModels[7].AnimationEnabled = true;
-                    cubeArrangementModels[8].AnimationEnabled = true;
-                    cubeArrangementModels[15].AnimationEnabled = true;
-                    cubeArrangementModels[16].AnimationEnabled = true;
-                    cubeArrangementModels[17].AnimationEnabled = true;
-                    cubeArrangementModels[24].AnimationEnabled = true;
-                    cubeArrangementModels[25].AnimationEnabled = true;
-                    cubeArrangementModels[26].AnimationEnabled = true;
+                    elso = false;
+                    cubeArrangementModels[6].Forgatasok[2] = true;
+                    cubeArrangementModels[7].Forgatasok[2] = true;
+                    cubeArrangementModels[8].Forgatasok[2] = true;
+                    cubeArrangementModels[15].Forgatasok[2] = true;
+                    cubeArrangementModels[16].Forgatasok[2] = true;
+                    cubeArrangementModels[17].Forgatasok[2]= true;
+                    cubeArrangementModels[24].Forgatasok[2] = true;
+                    cubeArrangementModels[25].Forgatasok[2] = true;
+                    cubeArrangementModels[26].Forgatasok[2] = true;
+                    
+                    temp = cubeArrangementModels[6];
+                    cubeArrangementModels[6] = cubeArrangementModels[24];
+                    cubeArrangementModels[24] = cubeArrangementModels[26];
+                    cubeArrangementModels[26] = cubeArrangementModels[8];
+                    cubeArrangementModels[8] = temp;
+                    
+                    temp = cubeArrangementModels[15];
+                    cubeArrangementModels[15] = cubeArrangementModels[25];
+                    cubeArrangementModels[25] = cubeArrangementModels[17];
+                    cubeArrangementModels[17] = cubeArrangementModels[7];
+                    cubeArrangementModels[7] = temp;
+                    
+                    break;
+                
+                case Key.Keypad1:
+                    cubeArrangementModels[6].Forgatasok[3] = true;
+                    cubeArrangementModels[7].Forgatasok[3] = true;
+                    cubeArrangementModels[8].Forgatasok[3] = true;
+                    cubeArrangementModels[15].Forgatasok[3] = true;
+                    cubeArrangementModels[16].Forgatasok[3] = true;
+                    cubeArrangementModels[17].Forgatasok[3]= true;
+                    cubeArrangementModels[24].Forgatasok[3] = true;
+                    cubeArrangementModels[25].Forgatasok[3] = true;
+                    cubeArrangementModels[26].Forgatasok[3] = true;
                     break;
                     
+                case Key.Number2:
+                    cubeArrangementModels[8].Forgatasok[4] = true;
+                    cubeArrangementModels[5].Forgatasok[4] = true;
+                    cubeArrangementModels[2].Forgatasok[4] = true;
+                    cubeArrangementModels[17].Forgatasok[4]= true;
+                    cubeArrangementModels[14].Forgatasok[4] = true;
+                    cubeArrangementModels[11].Forgatasok[4] = true;
+                    cubeArrangementModels[26].Forgatasok[4] = true;
+                    cubeArrangementModels[23].Forgatasok[4] = true;
+                    cubeArrangementModels[20].Forgatasok[4] = true;
+                    break;
+                
+                case Key.Keypad2:
+                    cubeArrangementModels[8].Forgatasok[5] = true;
+                    cubeArrangementModels[5].Forgatasok[5] = true;
+                    cubeArrangementModels[2].Forgatasok[5] = true;
+                    cubeArrangementModels[17].Forgatasok[5]= true;
+                    cubeArrangementModels[14].Forgatasok[5] = true;
+                    cubeArrangementModels[11].Forgatasok[5] = true;
+                    cubeArrangementModels[26].Forgatasok[5] = true;
+                    cubeArrangementModels[23].Forgatasok[5] = true;
+                    cubeArrangementModels[20].Forgatasok[5] = true;
+                    
+                    temp = cubeArrangementModels[8];
+                    cubeArrangementModels[8] = cubeArrangementModels[26];
+                    cubeArrangementModels[26] = cubeArrangementModels[20];
+                    cubeArrangementModels[20] = cubeArrangementModels[2];
+                    cubeArrangementModels[2] = temp;
+                    
+                    temp = cubeArrangementModels[17];
+                    cubeArrangementModels[17] = cubeArrangementModels[23];
+                    cubeArrangementModels[23] = cubeArrangementModels[11];
+                    cubeArrangementModels[11] = cubeArrangementModels[5];
+                    cubeArrangementModels[5] = temp;
+                    break;
+                
+                case Key.Number3:
+                    cubeArrangementModels[0].Forgatasok[0] = true;
+                    cubeArrangementModels[1].Forgatasok[0] = true;
+                    cubeArrangementModels[2].Forgatasok[0] = true;
+                    cubeArrangementModels[3].Forgatasok[0] = true;
+                    cubeArrangementModels[4].Forgatasok[0] = true;
+                    cubeArrangementModels[5].Forgatasok[0] = true;
+                    cubeArrangementModels[6].Forgatasok[0] = true;
+                    cubeArrangementModels[7].Forgatasok[0] = true;
+                    cubeArrangementModels[8].Forgatasok[0] = true;
+
+                    temp = cubeArrangementModels[0];
+                    cubeArrangementModels[0] = cubeArrangementModels[2];
+                    cubeArrangementModels[2] = cubeArrangementModels[8];
+                    cubeArrangementModels[8] = cubeArrangementModels[6];
+                    cubeArrangementModels[6] = temp;
+                    
+                    temp = cubeArrangementModels[1];
+                    cubeArrangementModels[1] = cubeArrangementModels[5];
+                    cubeArrangementModels[5] = cubeArrangementModels[7];
+                    cubeArrangementModels[7] = cubeArrangementModels[3];
+                    cubeArrangementModels[3] = temp;
+                    
+                    break;
+                
+                case Key.Keypad3:
+                    cubeArrangementModels[0].Forgatasok[1] = true;
+                    cubeArrangementModels[1].Forgatasok[1] = true;
+                    cubeArrangementModels[2].Forgatasok[1] = true;
+                    cubeArrangementModels[3].Forgatasok[1]= true;
+                    cubeArrangementModels[4].Forgatasok[1] = true;
+                    cubeArrangementModels[5].Forgatasok[1] = true;
+                    cubeArrangementModels[6].Forgatasok[1] = true;
+                    cubeArrangementModels[7].Forgatasok[1] = true;
+                    cubeArrangementModels[8].Forgatasok[1] = true;
+                    break;
+                
+                case Key.Number4:
+                    cubeArrangementModels[18].Forgatasok[0] = true;
+                    cubeArrangementModels[19].Forgatasok[0] = true;
+                    cubeArrangementModels[20].Forgatasok[0] = true;
+                    cubeArrangementModels[21].Forgatasok[0]= true;
+                    cubeArrangementModels[22].Forgatasok[0] = true;
+                    cubeArrangementModels[23].Forgatasok[0] = true;
+                    cubeArrangementModels[24].Forgatasok[0] = true;
+                    cubeArrangementModels[25].Forgatasok[0] = true;
+                    cubeArrangementModels[26].Forgatasok[0] = true;
+                    break;
+                
+                case Key.Keypad4:
+                    cubeArrangementModels[18].Forgatasok[1] = true;
+                    cubeArrangementModels[19].Forgatasok[1] = true;
+                    cubeArrangementModels[20].Forgatasok[1] = true;
+                    cubeArrangementModels[21].Forgatasok[1]= true;
+                    cubeArrangementModels[22].Forgatasok[1] = true;
+                    cubeArrangementModels[23].Forgatasok[1] = true;
+                    cubeArrangementModels[24].Forgatasok[1] = true;
+                    cubeArrangementModels[25].Forgatasok[1] = true;
+                    cubeArrangementModels[26].Forgatasok[1] = true;
+                    break;
+                
+                case Key.Number5:
+                    cubeArrangementModels[0].Forgatasok[2] = true;
+                    cubeArrangementModels[1].Forgatasok[2] = true;
+                    cubeArrangementModels[2].Forgatasok[2] = true;
+                    cubeArrangementModels[9].Forgatasok[2] = true;
+                    cubeArrangementModels[10].Forgatasok[2] = true;
+                    cubeArrangementModels[11].Forgatasok[2] = true;
+                    cubeArrangementModels[18].Forgatasok[2] = true;
+                    cubeArrangementModels[19].Forgatasok[2] = true;
+                    cubeArrangementModels[20].Forgatasok[2] = true;
+                    break;
+                
+                case Key.Keypad5:
+                    cubeArrangementModels[0].Forgatasok[3] = true;
+                    cubeArrangementModels[1].Forgatasok[3] = true;
+                    cubeArrangementModels[2].Forgatasok[3] = true;
+                    cubeArrangementModels[9].Forgatasok[3] = true;
+                    cubeArrangementModels[10].Forgatasok[3] = true;
+                    cubeArrangementModels[11].Forgatasok[3] = true;
+                    cubeArrangementModels[18].Forgatasok[3] = true;
+                    cubeArrangementModels[19].Forgatasok[3] = true;
+                    cubeArrangementModels[20].Forgatasok[3] = true;
+                    break;
+                
+                case Key.Number6:
+                    cubeArrangementModels[0].Forgatasok[4] = true;
+                    cubeArrangementModels[3].Forgatasok[4] = true;
+                    cubeArrangementModels[6].Forgatasok[4] = true;
+                    cubeArrangementModels[9].Forgatasok[4] = true;
+                    cubeArrangementModels[12].Forgatasok[4] = true;
+                    cubeArrangementModels[15].Forgatasok[4] = true;
+                    cubeArrangementModels[18].Forgatasok[4] = true;
+                    cubeArrangementModels[21].Forgatasok[4] = true;
+                    cubeArrangementModels[24].Forgatasok[4] = true;
+                    break;
+                
+                case Key.Keypad6:
+                    cubeArrangementModels[0].Forgatasok[5] = true;
+                    cubeArrangementModels[3].Forgatasok[5] = true;
+                    cubeArrangementModels[6].Forgatasok[5] = true;
+                    cubeArrangementModels[9].Forgatasok[5] = true;
+                    cubeArrangementModels[12].Forgatasok[5] = true;
+                    cubeArrangementModels[15].Forgatasok[5] = true;
+                    cubeArrangementModels[18].Forgatasok[5] = true;
+                    cubeArrangementModels[21].Forgatasok[5] = true;
+                    cubeArrangementModels[24].Forgatasok[5] = true;
+                    break;
             }
         }
 
@@ -240,11 +414,19 @@ namespace GrafikaSzeminarium
                         else if (k == 1)
                             var[2] = 0.1f;
                         else
-                            var[2] = 0; 
+                            var[2] = 0;
+                        cubeArrangementModels[index].index = index;
                         trans = Matrix4X4.CreateTranslation((float)i + var[0], (float)j + var[1], (float)k + var[2]);
-                        var modelMatrixDiamondCube = Matrix4X4.CreateRotationY((float)cubeArrangementModels[index].DiamondCubeGlobalYAngle);
-                        trans *= modelMatrixDiamondCube;
-                        SetMatrix(trans, ModelMatrixVariableName);
+                        var tempY = Matrix4X4.CreateRotationY((float)cubeArrangementModels[index].DiamondCubeGlobalYAngle);
+                        var tempZ = Matrix4X4.CreateRotationZ((float)cubeArrangementModels[index].DiamondCubeGlobalZAngle);
+                        var tempX = Matrix4X4.CreateRotationX((float)cubeArrangementModels[index].DiamondCubeGlobalXAngle);
+                        var temp = Matrix4X4<float>.Identity;
+                        temp *= trans;
+                        temp *= tempY;
+                        temp *= tempX;
+                        temp *= tempZ;
+                        SetMatrix(temp, ModelMatrixVariableName);
+                        
                         DrawModelObject(cubes[index]);
                         index++;
                     }

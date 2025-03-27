@@ -43,7 +43,7 @@ namespace Szeminarium
         }
 
         /// <summary>
-        /// Gets the position of the camera.
+        /// Gets the position of the camera.1
         /// </summary>
         public Vector3D<float> Position
         {
